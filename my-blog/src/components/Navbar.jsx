@@ -1,33 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  // Check for user's preferred color scheme
-  useEffect(() => {
-    if (localStorage.getItem('darkMode') === 'true' || 
-        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      setDarkMode(true)
-    }
-  }, [])
-
-  // Apply dark mode class to document
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('darkMode', 'true')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('darkMode', 'false')
-    }
-  }, [darkMode])
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-  }
+  const { darkMode, toggleDarkMode } = useTheme()
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
@@ -113,41 +91,50 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Home
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/articles"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Articles
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/about"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400"
+            onClick={() => setMobileMenuOpen(false)}
           >
             About
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/contact"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Contact
-          </a>
+          </Link>
           <button
-            onClick={toggleDarkMode}
+            onClick={() => {
+              toggleDarkMode()
+              setMobileMenuOpen(false)
+            }}
             className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
           >
             {darkMode ? (
               <div className="flex items-center">
                 <SunIcon className="h-5 w-5 text-yellow-400 mr-2" />
+                Light Mode
               </div>
             ) : (
               <div className="flex items-center">
                 <MoonIcon className="h-5 w-5 text-gray-800 mr-2" />
+                Dark Mode
               </div>
             )}
           </button>
