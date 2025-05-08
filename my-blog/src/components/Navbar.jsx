@@ -129,12 +129,10 @@ const Navbar = () => {
             {darkMode ? (
               <div className="flex items-center">
                 <SunIcon className="h-5 w-5 text-yellow-400 mr-2" />
-                Light Mode
               </div>
             ) : (
               <div className="flex items-center">
                 <MoonIcon className="h-5 w-5 text-gray-800 mr-2" />
-                Dark Mode
               </div>
             )}
           </button>
