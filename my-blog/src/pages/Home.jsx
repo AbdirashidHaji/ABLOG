@@ -1,12 +1,16 @@
-export default function Home() {
-    return (
-      <div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
-          Welcome to My Blog
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300">
-          This is the home page of my blog.
-        </p>
+import Hero from '../components/Hero'
+const Home = () => {
+  return (
+    <div>
+      <Hero />
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          Latest Articles
+        </h2>
+        {/* Post previews will go here tomorrow */}
       </div>
-    )
-  }
+    </div>
+  )
+}
+
+export default Home
