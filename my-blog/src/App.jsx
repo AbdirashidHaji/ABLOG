@@ -7,6 +7,7 @@ import Articles from './pages/Articles'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import SinglePost from './pages/SinglePost'
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
           <main className="max-w-6xl mx-auto px-4 py-8 flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+              // Add these routes:
               <Route path="/articles" element={<Articles />} />
+              <Route path="/articles/:id" element={<SinglePost />} />    
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />

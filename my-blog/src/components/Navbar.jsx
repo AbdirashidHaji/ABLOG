@@ -27,9 +27,9 @@ const Navbar = () => {
             <Link to="/" className="text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 px-3 py-2">
               Home
             </Link>
-            <Link to="/articles" className="text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 px-3 py-2">
+            {/* <Link to="/articles" className="text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 px-3 py-2">
               Articles
-            </Link>
+            </Link> */}
             <Link to="/about" className="text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 px-3 py-2">
               About
             </Link>
@@ -98,13 +98,13 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <Link
+          {/* <Link
             to="/articles"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400"
             onClick={() => setMobileMenuOpen(false)}
           >
             Articles
-          </Link>
+          </Link> */}
           <Link
             to="/about"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400"
